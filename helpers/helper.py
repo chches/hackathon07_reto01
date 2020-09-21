@@ -1,4 +1,5 @@
 from prettytable import PrettyTable
+from datetime import datetime, date
 
 def print_table(data, header=[]):
     tabla = 'Algo ocurrio mal'
@@ -44,6 +45,12 @@ def input_data(texto, tipo='string'):
                 dato = int(input(texto).strip())
             elif tipo == 'float':
                 dato = float(input(texto).strip())
+            elif tipo == 'date':
+                fecha = input(texto).strip()
+                dia, mes, anio = map(int, fecha.split('-'))
+                dato = date(anio,mes,dia) #date.fromisoformat(dato)"
+                if not type(dato) is date:
+                    raise ValueError("")
 
             if str(dato):
                 if (isinstance(dato, int) or isinstance(dato, float)) and dato < 0:

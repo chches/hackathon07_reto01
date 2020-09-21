@@ -2,6 +2,7 @@ from helpers.menu import Menu
 from controllers.profesores_controller import Profesores_controller
 from controllers.cursos_controller import Cursos_controller
 from controllers.salon_controller import Salon_controller
+from controllers.periodo_controller import Periodo_controller
 
 def iniciar_app():
     try:
@@ -25,7 +26,10 @@ def iniciar_app():
             if curso.salir:
                 iniciar_app()
         elif respuesta == 4:
-            pass
+            periodo = Periodo_controller()
+            periodo.menu()
+            if periodo.salir:
+                iniciar_app()
         elif respuesta == 5:
             salon = Salon_controller()
             salon.menu()
